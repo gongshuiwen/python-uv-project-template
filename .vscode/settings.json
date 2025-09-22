@@ -14,7 +14,17 @@
     "files.exclude": {
         "**/__pycache__": true,
         "**/*.pyc": true,
+        ".coverage": true,
         ".pytest_cache": true,
-        ".coverage": true
+        "htmlcov": true,
+    },
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}"
+    },
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
+    },
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
     }
 }
