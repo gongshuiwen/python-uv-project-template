@@ -10,12 +10,9 @@ wheels/
 .venv
 
 # Coverage
-.coverage
-htmlcov/
-
-# Pytest
 .pytest_cache
+.coverage
 
-# Env files
+# Environment files
 .env
 !.env.sample
