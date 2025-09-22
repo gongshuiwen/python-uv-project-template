@@ -1,11 +1,18 @@
-from pytest_mock import MockerFixture, MockType
+from pytest import CaptureFixture
 
 from main import main
 
 
 class TestMain:
-    def test_main_output(self, mocker: MockerFixture) -> None:
+    """测试 main 函数的测试类"""
+
+    def test_main_output(self, capsys: CaptureFixture[str]) -> None:
         """测试 main 函数的输出结果"""
-        mock_print: MockType = mocker.patch("builtins.print")
+        # 调用 main 函数
         main()
-        mock_print.assert_called_once_with("Hello from python-uv-project-template!")
+
+        # 使用 capsys 捕获标准输出
+        captured = capsys.readouterr()
+
+        # 验证输出内容
+        assert captured.out.strip() == "Hello from python-uv-project-template!"
