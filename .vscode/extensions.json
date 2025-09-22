@@ -4,6 +4,8 @@
         "charliermarsh.ruff",
         "detachhead.basedpyright",
         "tamasfe.even-better-toml",
-        "editorconfig.editorconfig"
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker"
     ]
 }
