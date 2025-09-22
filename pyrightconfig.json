@@ -1,24 +1,11 @@
 {
-  "typeCheckingMode": "recommended",
-  "pythonVersion": "3.13",
-  "venvPath": ".",
-  "venv": ".venv",
-  "include": [
-    "src",
-    "test"
-  ],
-  "exclude": [
-    "**/__pycache__",
-    ".venv",
-    "htmlcov",
-    ".pytest_cache"
-  ],
-  "executionEnvironments": [
-    {
-      "root": ".",
-      "extraPaths": [
-        "src"
-      ]
-    }
-  ]
+    "typeCheckingMode": "strict",
+    "pythonVersion": "3.13",
+    "venvPath": ".",
+    "venv": ".venv",
+    "include": [
+        "src",
+        "test",
+        "scripts" // Optinal
+    ]
 }
