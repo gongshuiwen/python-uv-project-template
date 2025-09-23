@@ -16,7 +16,7 @@
         "**/*.pyc": true,
         ".coverage": true,
         ".pytest_cache": true,
-        "htmlcov": true,
+        ".ruff_cache": true,
     },
     "terminal.integrated.env.windows": {
         "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}"
