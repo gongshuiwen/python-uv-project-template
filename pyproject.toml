@@ -9,41 +9,81 @@ dependencies = []
 [dependency-groups]
 dev = [
     { include-group = "lint" },
+    { include-group = "type" },
     { include-group = "test" },
 ]
-lint = [
-    "ruff"
-]
+type = ["basedpyright"]
+lint = ["ruff"]
 test = [
     "pytest",
     "pytest-cov",
     "pytest-mock",
+    # "hypothesis",
+    # "freezegun",
 ]
 
+# =================================================
+# Uv: https://docs.astral.sh/uv/reference/settings/
+# =================================================
+[tool.uv]
+# package = false # Default value: true
+
+# [[tool.uv.index]]
+# name = "mirrors"
+# url = "https://mirrors.tencent.com/pypi/simple"
+# default = true
+
+# ===========================================
+# Ruff: https://docs.astral.sh/ruff/settings/
+# ===========================================
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
+
+# ==================================================================
+# Pytest: https://docs.pytest.org/en/stable/reference/customize.html
+# ==================================================================
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["test"]
-python_files = ["test_*.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
-addopts = [
-    "--import-mode=importlib",
+addopts = [ # See: https://docs.pytest.org/en/stable/reference/reference.html#command-line-flags
+    "-ra",
     "--strict-markers",
     "--strict-config",
-    "--verbose",
-    "--cov=src",
-    "--cov-report=html",
-    "--cov-report=term",
-    "-ra",
+
+    # See: https://pytest-cov.readthedocs.io/en/latest/reporting.html
+    "--cov",
+    "--cov-report=term-missing"
 ]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks tests as integration tests",
 ]
 
-[tool.uv]
-package = false
+# ===============================================================
+# Coverage: https://coverage.readthedocs.io/en/latest/config.html
+# ===============================================================
+[tool.coverage.run]
+source = ["src"]
 
-[[tool.uv.index]]
-url = "https://mirrors.tencent.com/pypi/simple"
-default = true
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_also = [
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+    'if settings.DEBUG',
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+
+    # Don't complain about abstract methods, they aren't run:
+    "@(abc\\.)?abstractmethod",
+
+    # Others:
+    'class .*\bProtocol\):',
+]
