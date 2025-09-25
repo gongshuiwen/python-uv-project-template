@@ -1,11 +1,14 @@
 {
-    "typeCheckingMode": "strict",
+    "typeCheckingMode": "recommended",
     "pythonVersion": "3.13",
     "venvPath": ".",
     "venv": ".venv",
     "include": [
         "src",
-        "test",
-        "scripts" // Optinal
+        "test"
+    ],
+    "exclude": [
+        "**/node_modules",
+        "**/__pycache__"
     ]
 }
