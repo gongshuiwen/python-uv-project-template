@@ -1,6 +1,6 @@
 from pytest import CaptureFixture
 
-from main import main
+from uv_project_template.__main__ import main
 
 
 class TestMain:
