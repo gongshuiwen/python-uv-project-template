@@ -9,6 +9,17 @@
     ],
     "exclude": [
         "**/node_modules",
-        "**/__pycache__"
-    ]
+        "**/__pycache__",
+        "src/experimental",
+        "src/typestubs"
+    ],
+    "ignore": [
+        "src/oldstuff"
+    ],
+    "defineConstant": {
+        "DEBUG": true
+    },
+    "stubPath": "src/typestubs",
+    "reportMissingImports": "error",
+    "reportMissingTypeStubs": false,
 }
