@@ -1,7 +1,9 @@
 {
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.terminal.activateEnvInCurrentTerminal": false,
+    "python.terminal.useEnvFile": true,
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "python.testing.pytestArgs": ["test"],
     "[python]": {
         "editor.formatOnSave": true,
         "editor.formatOnSaveMode": "modificationsIfAvailable",
@@ -16,7 +18,7 @@
         "**/*.pyc": true,
         ".coverage": true,
         ".pytest_cache": true,
-        ".ruff_cache": true,
+        ".ruff_cache": true
     },
     "terminal.integrated.env.windows": {
         "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}"
@@ -26,5 +28,50 @@
     },
     "terminal.integrated.env.osx": {
         "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
-    }
+    },
+    "terminal.integrated.profiles.linux": {
+        "bash (load .env)": {
+            "path": "bash",
+            "args": [
+                "-c",
+                "if [ -f .env ]; then set -a; source .env; set +a; fi; exec bash"
+            ]
+        },
+        "zsh (load .env)": {
+            "path": "zsh",
+            "args": [
+                "-c",
+                "if [ -f .env ]; then set -a; source .env; set +a; fi; exec zsh"
+            ]
+        }
+    },
+    "terminal.integrated.profiles.osx": {
+        "bash (load .env)": {
+            "path": "bash",
+            "args": [
+                "-c",
+                "if [ -f .env ]; then set -a; source .env; set +a; fi; exec bash"
+            ]
+        },
+        "zsh (load .env)": {
+            "path": "zsh",
+            "args": [
+                "-c",
+                "if [ -f .env ]; then set -a; source .env; set +a; fi; exec zsh"
+            ]
+        }
+    },
+    "terminal.integrated.profiles.windows": {
+        "PowerShell (load .env)": {
+            "path": "pwsh",
+            "args": [
+                "-NoExit",
+                "-Command",
+                "if (Test-Path .env) { Get-Content .env | ForEach-Object { if ($_ -match '^[^#].*=') { $name, $value = $_.split('=', 2); [System.Environment]::SetEnvironmentVariable($name.Trim(), $value.Trim()) } } }"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "bash (load .env)",
+    "terminal.integrated.defaultProfile.osx": "zsh (load .env)",
+    "terminal.integrated.defaultProfile.windows": "PowerShell (load .env)"
 }
