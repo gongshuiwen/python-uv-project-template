@@ -1,12 +1,12 @@
 {
-    "recommendations": [
-        "ms-python.python",
-        "charliermarsh.ruff",
-        "detachhead.basedpyright",
-        "tamasfe.even-better-toml",
-        "editorconfig.editorconfig",
-        "esbenp.prettier-vscode",
-        "ms-azuretools.vscode-docker",
-        "mikestead.dotenv"
-    ]
+  "recommendations": [
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "detachhead.basedpyright",
+    "tamasfe.even-better-toml",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "ms-azuretools.vscode-docker",
+    "mikestead.dotenv"
+  ]
 }
