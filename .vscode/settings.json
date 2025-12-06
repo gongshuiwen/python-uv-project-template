@@ -9,6 +9,10 @@
     ".pytest_cache": true,
     ".ruff_cache": true
   },
+  "files.associations": {
+    ".env": "dotenv",
+    ".env.*": "dotenv"
+  },
 
   // Python settings
   "python.envFile": "${workspaceFolder}/.env",
