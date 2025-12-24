@@ -1,4 +1,5 @@
 {
+  // Files settings
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
@@ -30,7 +31,7 @@
     }
   },
 
-  // Terminal settings to load .env and set PYTHONPATH
+  // Terminal settings to set PYTHONPATH and load .env filds
   "terminal.integrated.env.windows": {
     "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}"
   },
